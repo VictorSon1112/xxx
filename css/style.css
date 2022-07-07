@@ -24622,9 +24622,35 @@
 
     @media (max-width:768px) {
         .tokenomics {
-
             height: 700px;
         }
+
+        section {
+            overflow: unset !important;
+        }
+
+        #moon .moon-left[data-v-6945bf77] {
+            width: 0;
+        }
+
+        #moon .moon-right[data-v-6945bf77] {
+            padding-right: 0;
+        }
+
+        #ar .ar[data-v-d3978836] {
+            display: block;
+            height: auto;
+            max-height: unset;
+        }
+
+        .tokenomics {
+            height: auto;
+        }
+
+        #team .advisor-card_detail>img[data-v-3077d452] {
+            width: auto;
+        }
+
     }
 
     #beta-testing-banner {
