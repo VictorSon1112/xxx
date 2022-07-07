@@ -24528,7 +24528,6 @@
 
     .tokenomics {
         padding: 100px 100px;
-        height: 570px;
         background: url(../img/bg-moon.ba9e0204.png);
         background-size: 100% 100%
     }
@@ -24597,7 +24596,18 @@
 
     @media (max-width: 1000px) {
         .tokenomics {
-            padding: 0;
+            padding: 50px 16px;
+        }
+
+        #ar .ar[data-v-d3978836] {
+            display: block;
+            height: auto;
+            max-height: unset;
+
+        }
+
+        #ar .ar-action[data-v-d3978836] {
+            padding: 8px
         }
 
         .tokenomics__body {
@@ -24621,9 +24631,7 @@
     }
 
     @media (max-width:768px) {
-        .tokenomics {
-            height: 700px;
-        }
+
 
         section {
             overflow: unset !important;
@@ -24637,11 +24645,7 @@
             padding-right: 0;
         }
 
-        #ar .ar[data-v-d3978836] {
-            display: block;
-            height: auto;
-            max-height: unset;
-        }
+
 
         .tokenomics {
             height: auto;
