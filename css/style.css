@@ -24594,7 +24594,19 @@
         justify-content: center;
     }
 
+    #ar .ar-info[data-v-d3978836] {
+        padding-right: 0;
+    }
+
+    #team .advisor-card_detail>img[data-v-3077d452] {
+        width: auto;
+    }
+
     @media (max-width: 1000px) {
+        section {
+            padding: 50px 16px;
+        }
+
         .tokenomics {
             padding: 50px 16px;
         }
