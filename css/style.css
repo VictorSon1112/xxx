@@ -6,14 +6,13 @@ html {
 
 @font-face {
     font-family: 'Bai Jamjuree';
-    src: url('../fonts/BaiJamjuree-Medium.ttf');
+    src: url('../fonts/BaiJamjuree-Bold.ttf');
 }
 
 body {
-    background: #111111 !important;
     color: #fff !important;
     height: 100%;
-    font-family: Bai Jamjuree, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Bai Jamjuree, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -34,7 +33,7 @@ header .header {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 80px;
     position: sticky;
     top: 0;
@@ -253,7 +252,6 @@ header .header-btn div {
         box-sizing: border-box;
         justify-content: center;
         grid-template-columns: 1fr;
-        display: none;
         gap: 10px
     }
 
@@ -334,7 +332,6 @@ header .header-btn div {
 
 
 #tokenomics {
-    background: url(../img/bg-vr.211762f8.png);
     background-size: 100% 100%;
     color: #fff;
     display: flex;
@@ -349,7 +346,9 @@ header .header-btn div {
 
 }
 
-
+.tokenomics__list {
+    padding: 0
+}
 
 .tokenomics__list li {
     border-bottom: 1px dotted #fff;
@@ -376,7 +375,7 @@ header .header-btn div {
 }
 
 .infotknm p {
-    background-color: #282733;
+    background-color: #6b6a6e;
     color: #424057;
     margin: 0;
     margin-right: 0.2rem;
@@ -402,7 +401,6 @@ header .header-btn div {
 
 #banner {
     position: relative;
-    background: url(../img/bg-moon.ba9e0204.png);
 }
 
 #banner video {
@@ -488,8 +486,8 @@ section .controls {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     text-align: center;
+    padding: 1rem 0;
 }
 
 .exploration-mask_title {
@@ -776,10 +774,7 @@ section .controls {
     }
 }
 
-#moon {
-    background: url(../img/bg-moon.ba9e0204.png);
-    background-size: 100% 100%;
-}
+
 
 #moon .moon {
 
@@ -798,8 +793,19 @@ section .controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 60px
+    padding-right: 60px;
+    height: 100%;
 }
+
+.moon-right {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 60px;
+    height: 100%;
+}
+
 
 #moon .moon-right .title {
     font-size: 60px;
@@ -809,7 +815,19 @@ section .controls {
     width: 100%
 }
 
+.moon-right .title {
+    font-size: 60px;
+    line-height: 72px;
+    font-family: Starforge, sans-serif;
+    text-align: center;
+    width: 100%
+}
+
 #moon .moon-right .title img {
+    max-width: 100%
+}
+
+.moon-right .title img {
     max-width: 100%
 }
 
@@ -824,9 +842,18 @@ section .controls {
     margin-top: 0
 }
 
-#moon .moon-right .list {
-    padding-left: 10%
+.moon-right p {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 4px 17px rgba(0, 0, 0, .5);
+    max-width: 90%;
+    text-align: left;
+    margin-top: 0
 }
+
+
 
 #moon .moon-right .list p {
     display: flex;
@@ -845,7 +872,6 @@ section .controls {
     position: relative;
     overflow: hidden;
     min-height: 100vh;
-    background: url(../img/bg-ar.47068cc0.png);
     background-size: 100% 100%
 }
 
@@ -1052,7 +1078,6 @@ section .controls {
     /* height: 100vh; */
     overflow: hidden;
     position: relative;
-    background: url(../img/bg-vr.211762f8.png);
     background-size: 100% 100%;
     padding: 2rem;
 }
@@ -1243,7 +1268,6 @@ section .controls {
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
-    height: 100vh;
     position: relative
 }
 
@@ -2328,7 +2352,6 @@ section .controls {
 
 
 #team {
-    background: url(../img/bg-game.d0af4a1a.png);
     background-size: 100% 100%;
     box-sizing: border-box
 }
@@ -2875,7 +2898,6 @@ footer .copyright p {
 }
 
 #land {
-    background: url("../img/bg-vr.211762f8.png");
     padding: 1rem;
     text-align: center;
 
@@ -2888,20 +2910,18 @@ footer .copyright p {
 }
 
 #typeland {
-    background: url("../img/bg-vr.211762f8.png");
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 #gamefi {
-    background: url(../img/bggf.png);
     text-align: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 100vh;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 1rem;
 
 }
 
@@ -2910,7 +2930,6 @@ footer .copyright p {
 }
 
 #nft {
-    background: url("../img/bg-vr.211762f8.png");
     padding: 1rem;
     text-align: center
 }
@@ -2921,12 +2940,120 @@ footer .copyright p {
 
 #nft img {
     width: 100%;
-    padding: 0 2rem;
     border-radius: 12px;
     overflow: hidden;
 
 }
 
-.sub-title img {
-    width: 100%;
+.sub-title {
+    text-align: center !important;
+}
+
+.delimiter {
+    position: fixed;
+    height: 80vh;
+    top: 10vh;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    z-index: 999999;
+}
+
+.delimiter-item {
+    position: relative;
+    z-index: 2;
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.delimiter-item_tag {
+    cursor: pointer;
+    font-family: Starforge, sans-serif
+}
+
+.delimiter-item_tag>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 14px
+}
+
+.delimiter-item_tag--square {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    transform: rotate(45deg)
+}
+
+.delimiter-item_tag--square>span {
+    transform: rotate(-45deg)
+}
+
+.delimiter-item_tag--square.small {
+    width: 20px;
+    height: 20px
+}
+
+.delimiter-item_tag--round {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%
+}
+
+.delimiter-item_tag--round.small {
+    width: 22px;
+    height: 22px
+}
+
+.delimiter-item_tag .dot {
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%
+}
+
+.delimiter-item_tag .background {
+    background: linear-gradient(180deg, #0B3439, #62FFE8)
+}
+
+.delimiter-item_step {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.delimiter-item_step>div {
+    flex: 1 0 0;
+    transition: .4s
+}
+
+.delimiter-item_step .step {
+    width: 2px;
+    background: #fff
+}
+
+.delimiter-item.last-item {
+    flex: 0 0 auto
+}
+
+.delimiter-item.last-item_step {
+    display: none
+}
+
+.delimiter-background {
+    position: absolute;
+    z-index: 1;
+    width: 2px;
+    top: 4px;
+    left: calc(50% - 1px);
+    bottom: 2px;
+    background: linear-gradient(180deg, #eee 2px, transparent 4px);
+    background-size: 2px 6px
 }

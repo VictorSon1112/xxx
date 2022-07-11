@@ -1,3 +1,21 @@
+body {
+    background-image: url(../img/bg-exploration.614d4fde.png) !important;
+    background-repeat: no-repeat;
+    background-position: contain;
+    background-size: 100% 100%;
+}
+
+section {
+    /* padding: 0 16px !important; */
+    overflow: hidden;
+}
+
+@media (min-width:1000px) {
+    #game .game .col {
+        height: 100vh
+    }
+}
+
 @media (min-width: 768px) {
     #team .row {
         margin: 0 20%;
@@ -5,7 +23,53 @@
     }
 }
 
-@media(max-width:720px) {
+.ar-action {
+    margin-top: 1rem;
+}
+
+.row {
+    justify-content: center;
+}
+
+.list-land img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.list-land>div {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.list-land>div>div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:1024px) {
+    .header__navmb.hidemn {
+        display: none
+    }
+}
+
+@media(max-width:768px) {
+
+
+    .exploration-mask {
+        min-height: auto
+    }
+
+    #partners {
+        padding: 1rem;
+    }
+
     #gamefi {
         height: auto;
     }
@@ -42,9 +106,21 @@
 
 }
 
+@media (max-width: 480px) {
+    .moon-right {
+        padding: 1rem 0 1rem 4rem;
+    }
+}
 
 .title {
     display: flex;
     justify-content: center;
     padding: 1rem 0;
+}
+
+.nft__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
 }

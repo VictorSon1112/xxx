@@ -1,3 +1,7 @@
+infoPage = {
+  logo: "../img/logo.2db64683.png",
+};
+
 let listMechasSlider = [
   {
     name: "Giant",

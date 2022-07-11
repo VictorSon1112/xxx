@@ -1,8 +1,56 @@
+const delimiterLayout = () => {
+  let listSection = document.querySelectorAll("section");
+  let html = `
+  ${menu
+    .map(
+      (vl, i) => `
+      <div onclick="scrollInto(event,'${i + 1}','${
+        vl.link
+      }')" class="delimiter-item ${i == menu.length - 1 ? "last-item" : ""} ">
+      <div class="delimiter-item_tag">
+          <div class="delimiter-item_tag--${
+            i == 0 || i == menu.length - 1 ? "square" : "round"
+          } ${
+        i == 0 ? "background" : ""
+      } small"><span  class="dot"></span></div>
+          
+      </div>
+      <div class="delimiter-item_step">
+          <div class="delimiter-background"></div>
+      </div>
+    </div>
+  `
+    )
+    .join("")}
+  `;
+
+  let delimiter = document.querySelector(".delimiter");
+  delimiter.innerHTML = html;
+};
+const scrollInto = (e, key, location) => {
+  if (!e.target.hasChildNodes()) return;
+  let span = e.target.querySelector("span");
+  let background = document.querySelector(".background");
+  let to = document.querySelector(`#${location}`);
+
+  span?.classList.remove("dot");
+  span.innerHTML = key;
+  e.target.classList.remove("small");
+  e.target.classList.add("background");
+
+  background?.classList.remove("background");
+  background?.classList.add("small");
+  let span2 = background?.querySelector("span");
+  span2?.classList.add("dot");
+  span2.innerHTML = "";
+
+  to.scrollIntoView({ behavior: "smooth" });
+};
 const renderChart = () => {
   let section = document.querySelector("#tokenomics");
 
   let html = `
-    <div class="tokenomics container">
+    <div class="tokenomics container" data-aos="fade-up" data-aos-duration="1000">
         <div class="tokenomics__head">
             <h2>Tokenomics</h2>
             <h4>${infoToken.des}</h4>
@@ -10,7 +58,7 @@ const renderChart = () => {
         </div>
         <div class="tokenomics__body">
         <div class="row">
-            <div class="col-md-9 col-12">
+            <div class="col-lg-9 col-12">
                 <div class="left">
                     <ul class="tokenomics__list">
                     ${tokenomis
@@ -56,7 +104,7 @@ const renderChart = () => {
                 </div>
             </div>
           </div>
-            <div class="col-md-3 col-12">
+            <div class="col-lg-3 col-12">
                 <div class="right">
                     <div class="circleToken">
                         <div id="chart"></div>
@@ -119,8 +167,10 @@ const renderHeader = () => {
   html = `
     <div class="header">
         <div class="hambuger" onclick="showMenuMb()"><img src="img/hamburger.4928710e.png" alt=""></div>
-        <div class="logo"><a href="#"><img alt="" src="../img/logo.2db64683.png"></a></div>
-        <nav class="header__nav header__navmb animate">
+        <div class="logo"><a href="#"><img alt="" src="${
+          infoPage.logo
+        }"></a></div>
+        <nav class="header__nav header__navmb animate hidemn">
             <ul class="mobileShow">
             ${menu
               .map((vl) => `<li><a href="#${vl.link}">${vl.title}</a></li>`)
@@ -175,22 +225,50 @@ const renderMechas = () => {
   content.innerHTML = html;
 };
 
+delimiterLayout();
 renderChart();
 renderHeader();
 renderMechas();
 
+// video
+let video = document.querySelector(".videoBanner");
+let pause = document.querySelector(".pauseVideo");
+let play = document.querySelector(".playVideo");
+
+pause.style.display = "none";
 const pauseVid = () => {
-  let video = document.querySelector(".videoBanner");
-  video.play();
+  if (video && video.paused) {
+    video.play();
+    pause.style.display = "none";
+    play.style.display = "block";
+  } else {
+    video.pause();
+    pause.style.display = "block";
+    play.style.display = "none";
+  }
 };
 
+//end video
+
+// logo
+const logoShow = document.querySelector(".logoft");
+logoShow.src = `${infoPage.logo}`;
+
+//show menu mb
 function showMenuMb() {
   let menuMB = document.querySelector(".header__navmb");
-  if (menuMB.style.display == "none") {
-    menuMB.style.display = "block";
+  if (menuMB.classList.contains("hidemn")) {
+    menuMB.classList.remove("hidemn");
   } else {
-    menuMB.style.display = "none";
+    menuMB.classList.add("hidemn");
   }
+}
+let menuMobile = document.querySelector(".header__navmb");
+let amb = menuMobile.querySelectorAll("a");
+for (let i = 0; i < amb.length; i++) {
+  amb[i].addEventListener("click", () => {
+    menuMobile.classList.add("hidemn");
+  });
 }
 
 const handleShowMoon = () => {
@@ -253,29 +331,3 @@ const showAnchorTwo = () => {
   two[0].style.display = "none";
   two[1].style.display = "block";
 };
-
-document.addEventListener("scroll", () => {
-  let header = document.querySelector(".header");
-  header.style.opacity = "0";
-});
-
-function createScrollStopListener(element, callback, timeout) {
-  var handle = null;
-  var onScroll = function () {
-    if (handle) {
-      clearTimeout(handle);
-    }
-    handle = setTimeout(callback, timeout || 200); // default 200 ms
-  };
-  element.addEventListener("scroll", onScroll);
-  return function () {
-    element.removeEventListener("scroll", onScroll);
-  };
-}
-
-// Example usage:
-
-createScrollStopListener(window, function () {
-  let header = document.querySelector(".header");
-  header.style.opacity = "1";
-});
